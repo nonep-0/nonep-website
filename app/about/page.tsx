@@ -346,9 +346,9 @@ export default function AboutPage() {
 
             <ParagraphBlock>
               <p>
-                그래서 우리는 브랜드를 설명하기 전에
+                우리는 브랜드를 설명하기 전에
                 <br />
-                먼저 직접 만들어보기 시작했습니다.
+                먼저 직접 만들어보면 어떨까? 라는 궁금증에서 시작했습니다.
               </p>
 
               <p>
