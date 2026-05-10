@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   title: "없는마케팅",
   description:
     "브랜드에 없는 이야기를 만들고, 스토리로 팔리게 하는 전략적 마케팅 대행사",
-  // 검색 엔진 소유권 인증 추가
   verification: {
-    google: "구글_인증_문자열", // 구글 content="이부분" 복사해서 넣기
+    google: "구글_인증키는_기존에_넣으셨던거_그대로_유지해주세요", 
     other: {
-      "naver-site-verification": "네이버_인증_문자열", // 네이버 content="이부분" 복사해서 넣기
+      // 멍님이 주신 네이버 키값을 정확히 넣었습니다!
+      "naver-site-verification": "c32718b8ad8d4d6eab1531295152320e0c4c2a80",
     },
   },
 };
