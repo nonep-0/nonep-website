@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     other: {
       // 멍님이 주신 네이버 키값을 정확히 넣었습니다!
       "naver-site-verification": "c32718b8ad8d4d6eab1531295152320e0c4c2a80",
+      "google-site-verification": "E-Oo41Bgl3cCtgNSe8jesZPbty44VPlkG8EXHxlOaQo",
     },
   },
 };
