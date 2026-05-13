@@ -31,7 +31,7 @@ export default function SiteFooter() {
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-start">
             <div className="space-y-1.5">
               <p className="text-[12px] font-semibold tracking-[-0.02em] text-white/86">
-                대표이사 이민영 | 사업자등록번호 570-22-01285
+                CEO 이민영 | 사업자등록번호 570-22-01285
               </p>
               <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
                 Business Inquiry:{" "}
