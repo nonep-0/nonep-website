@@ -1,9 +1,19 @@
+"use client";
+
 import Link from "next/link";
 
 function InstagramIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-      <rect x="3.5" y="3.5" width="17" height="17" rx="4" stroke="currentColor" strokeWidth="1.8" />
+      <rect
+        x="3.5"
+        y="3.5"
+        width="17"
+        height="17"
+        rx="4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+      />
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="17.4" cy="6.7" r="1" fill="currentColor" />
     </svg>
@@ -26,74 +36,113 @@ function YouTubeIcon() {
 
 export default function SiteFooter() {
   return (
-      <footer className="bg-[#2f2f2f] px-6 py-8 text-white md:py-9">
-        <div className="mx-auto max-w-[1040px]">
-          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-start">
-            <div className="space-y-1.5">
-              <p className="text-[12px] font-semibold tracking-[-0.02em] text-white/86">
-                CEO 이민영 | 사업자등록번호 570-22-01285
-              </p>
-              <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
-                Business Inquiry:{" "}
-                <a href="mailto:contact@upneun.co.kr" className="transition hover:text-white">
-                  contact@upneun.co.kr
-                </a>
-              </p>
-              <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
-                서울특별시 강서구 마곡중앙로 105-7
-              </p>
-              <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
-                케이스퀘어 Tower1 2층 202호
-              </p>
-            </div>
+    <footer className="relative overflow-hidden border-t border-[#ff1493]/20 bg-black px-6 py-8 text-white md:py-9">
+      <div className="pointer-events-none absolute left-0 top-0 h-[1px] w-full overflow-hidden">
+        <span className="absolute left-[-35%] top-0 h-full w-[35%] animate-[nonepFooterLaser_3.2s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-[#ff1493] to-transparent shadow-[0_0_14px_#ff1493]" />
+      </div>
 
-            <div className="md:text-right">
-              <div className="flex flex-col gap-1.5 text-[12px] font-medium leading-[1.7] text-white/68">
-                <a href="/terms" className="transition hover:text-white">
-                  이용약관
-                </a>
-                <a href="/privacy" className="transition hover:text-white">
-                  개인정보처리방침
-                </a>
-                <a href="/legal" className="transition hover:text-white">
-                  법적고지
-                </a>
-                <a href="/unsubscribe" className="transition hover:text-white">
-                  이메일 무단 수집거부
-                </a>
-              </div>
-            </div>
+      <div className="mx-auto max-w-[1040px]">
+        <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-start">
+          <div className="space-y-1.5">
+            <p className="text-[12px] font-semibold tracking-[-0.02em] text-white/86">
+              CEO Minyoung Lee | Business Registration No. 570-22-01285
+            </p>
+
+            <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
+              Business Inquiry:{" "}
+              <a
+                href="mailto:contact@animallounge.co.kr"
+                className="transition hover:text-[#ff1493]"
+              >
+                contact@animallounge.co.kr
+              </a>
+            </p>
+
+            <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
+              105-7 Magokjungang-ro, Gangseo-gu, Seoul
+            </p>
+
+            <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
+              K-Square Tower 1, 2F, Room 202
+            </p>
           </div>
 
-          <div className="mt-6 border-t border-white/16 pt-4">
-            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <p className="text-[11.5px] font-medium tracking-[-0.02em] text-white/52">
-                © 2026 upneun. All rights reserved.
-              </p>
+          <div className="md:text-right">
+            <div className="flex flex-col gap-1.5 text-[12px] font-medium leading-[1.7] text-white/68">
+              <Link href="/terms" className="transition hover:text-[#ff1493]">
+                Terms of Use
+              </Link>
 
-              <div className="flex items-center gap-4 text-white/55">
-                <a
-                  href="https://www.instagram.com/upneun/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="transition hover:text-white"
-                >
-                  <InstagramIcon/>
-                </a>
-                <a
-                  href="https://www.youtube.com/@%EC%97%86%EB%8A%94%EB%A7%88%EC%BC%80%ED%8C%85"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  className="transition hover:text-white"
-                >
-                  <YouTubeIcon />
-                </a>
-              </div>
+              <Link href="/privacy" className="transition hover:text-[#ff1493]">
+                Privacy Policy
+              </Link>
+
+              <Link href="/legal" className="transition hover:text-[#ff1493]">
+                Legal Notice
+              </Link>
+
+              <Link
+                href="/unsubscribe"
+                className="transition hover:text-[#ff1493]"
+              >
+                Email Collection Refusal
+              </Link>
             </div>
           </div>
         </div>
-      </footer>
+
+        <div className="mt-6 border-t border-white/16 pt-4">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <p className="text-[11.5px] font-medium tracking-[-0.02em] text-white/52">
+              © 2026 nonep. All rights reserved.
+            </p>
+
+            <div className="flex items-center gap-4 text-white/55">
+              <a
+                href="https://www.instagram.com/upneun/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:text-[#ff1493]"
+              >
+                <InstagramIcon />
+              </a>
+
+              <a
+                href="https://www.youtube.com/@%EC%97%86%EB%8A%94%EB%A7%88%EC%BC%80%ED%8C%85"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="transition hover:text-[#ff1493]"
+              >
+                <YouTubeIcon />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes nonepFooterLaser {
+          0% {
+            transform: translateX(0);
+            opacity: 0;
+          }
+
+          12% {
+            opacity: 1;
+          }
+
+          50% {
+            opacity: 1;
+          }
+
+          100% {
+            transform: translateX(385%);
+            opacity: 0;
+          }
+        }
+      `}</style>
+    </footer>
   );
 }
