@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const adminNavItems = [
-  { href: "/admin", label: "Dashboard" },
-  { href: "/admin/albums", label: "Albums" },
-  { href: "/admin/producers", label: "Producers" },
-  { href: "/admin/directors", label: "Directors" },
+  { href: "/admin", label: "대시보드" },
+  { href: "/admin/albums", label: "앨범 관리" },
+  { href: "/admin/producers", label: "프로듀서 관리" },
+  { href: "/admin/directors", label: "디렉터 관리" },
 ];
 
 export default function AdminShell({
@@ -23,7 +23,7 @@ export default function AdminShell({
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="mb-3 text-[11px] font-black uppercase tracking-[0.32em] text-[#ff1493]">
-                NONEP Admin
+                NONEP 관리자
               </p>
 
               <h1 className="text-[42px] font-black uppercase leading-none tracking-[0.08em] text-white md:text-[64px]">
@@ -39,7 +39,7 @@ export default function AdminShell({
               href="/"
               className="inline-flex h-[42px] items-center justify-center rounded-full border border-[#ff1493]/55 px-5 text-[10.5px] font-black uppercase tracking-[0.18em] text-white/90 transition hover:bg-[#ff1493] hover:text-black"
             >
-              View Site
+              사이트 확인
             </Link>
           </div>
 
