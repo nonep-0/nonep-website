@@ -182,39 +182,39 @@ export default async function ProducerDetailPage({
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[520px_1fr]">
           <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#08080c] shadow-[0_0_42px_rgba(255,20,147,0.12)]">
-            <div className="relative aspect-[16/10] overflow-hidden bg-black">
+            <div className="relative aspect-square overflow-hidden bg-black">
               <img
                 src={profileImage}
                 alt={currentProducer.name}
                 className="h-full w-full object-cover object-center"
               />
+            </div>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/12 to-transparent" />
+            <div className="border-t border-white/10 bg-[#08080c] p-6">
+              <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
+                {currentProducer.meaning ||
+                  currentProducer.role ||
+                  "NONEP Producer"}
+              </p>
 
-              <div className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-black">
-                {currentProducer.role || "Producer"}
-              </div>
+              <h2 className="mt-3 text-[38px] font-black uppercase leading-none tracking-[0.04em] text-white">
+                {currentProducer.name}
+              </h2>
 
-              <div className="absolute right-5 top-5 rounded-full border border-[#ff1493]/40 bg-black/40 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#ff1493] backdrop-blur">
-                {producerNumber}
-              </div>
-
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
-                  {currentProducer.meaning ||
-                    currentProducer.role ||
-                    "Producer"}
+              {currentProducer.japanese_name ? (
+                <p className="mt-3 text-[14px] font-black text-white/72">
+                  {currentProducer.japanese_name}
                 </p>
+              ) : null}
 
-                <h2 className="mt-3 text-[38px] font-black uppercase leading-none tracking-[0.08em] text-white">
-                  {currentProducer.name}
-                </h2>
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="rounded-full bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-black">
+                  {currentProducer.role || "Producer"}
+                </span>
 
-                {currentProducer.japanese_name ? (
-                  <p className="mt-3 text-[14px] font-black text-white/72">
-                    {currentProducer.japanese_name}
-                  </p>
-                ) : null}
+                <span className="rounded-full border border-white/12 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/62">
+                  {producerNumber}
+                </span>
               </div>
             </div>
           </div>

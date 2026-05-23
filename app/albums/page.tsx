@@ -198,7 +198,7 @@ export default async function AlbumsPage({ searchParams }: AlbumsPageProps) {
           <img
             src="/source/albums-hero.png"
             alt="NONEP Albums"
-            className="h-full w-full object-cover object-[70%_42%]"
+            className="h-full w-full object-cover object-[78%_16%] md:object-[78%_14%]"
           />
         </div>
 

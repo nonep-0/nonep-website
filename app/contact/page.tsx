@@ -20,12 +20,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <img
             src="/source/contact-main.png"
             alt="NONEP Contact"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-[82%_14%] md:object-[82%_10%]"
           />
         </div>
 
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.68)_48%,rgba(0,0,0,0.42)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.54)_58%,rgba(0,0,0,1)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.9)_0%,rgba(0,0,0,0.6)_44%,rgba(0,0,0,0.14)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_0%,rgba(0,0,0,0.22)_52%,rgba(0,0,0,1)_100%)]" />
 
         <div className="relative mx-auto flex min-h-[360px] max-w-[1280px] items-end px-6 py-16 md:min-h-[430px] md:px-8 md:py-20">
           <div>
@@ -58,13 +58,44 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           </div>
         ) : null}
 
-        <div className="grid gap-10 lg:grid-cols-[520px_1fr]">
-          <div className="overflow-hidden border border-white/10 bg-[#08080c]">
-            <img
-              src="/source/contact-main.png"
-              alt="NONEP"
-              className="aspect-square w-full object-cover"
-            />
+        <div className="grid gap-10 lg:grid-cols-[520px_1fr] lg:items-start">
+          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#08080c] shadow-[0_0_42px_rgba(255,20,147,0.12)]">
+            <div className="relative aspect-square overflow-hidden bg-black">
+              <img
+                src="/source/contact-main.png"
+                alt="NONEP Contact"
+                className="h-full w-full object-cover object-[52%_34%]"
+              />
+            </div>
+
+            <div className="border-t border-white/10 bg-[#08080c] p-6">
+              <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
+                NONEP Inquiry
+              </p>
+
+              <h2 className="mt-3 text-[38px] font-black uppercase leading-none tracking-[0.04em] text-white">
+                Contact
+              </h2>
+
+              <p className="mt-4 max-w-[420px] text-[14px] font-semibold leading-[1.8] text-white/52">
+                Send us your demo, collaboration idea, production inquiry, or
+                project proposal.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                <span className="rounded-full bg-white px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-black">
+                  Demo
+                </span>
+
+                <span className="rounded-full border border-white/12 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/62">
+                  Collaboration
+                </span>
+
+                <span className="rounded-full border border-white/12 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/62">
+                  Production
+                </span>
+              </div>
+            </div>
           </div>
 
           <form action={sendContactAction} className="relative z-10">

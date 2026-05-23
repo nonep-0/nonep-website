@@ -496,7 +496,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
             <p className="mt-7 max-w-[640px] text-[15px] font-semibold leading-[1.9] text-white/62 md:text-[16px]">
               Vocaloid, producer, director, and release archive connected from
-              the NONEP admin database.
+              the NONEP.
             </p>
           </div>
         </div>

@@ -144,7 +144,7 @@ export default async function ProducersPage() {
           <img
             src="/source/producers-hero.png"
             alt="NONEP Producers"
-            className="h-full w-full object-cover object-[70%_42%]"
+            className="h-full w-full object-cover object-[88%_8%] md:object-[86%_6%]"
           />
         </div>
 
