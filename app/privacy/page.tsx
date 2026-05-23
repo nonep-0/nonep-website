@@ -1,167 +1,208 @@
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+export const metadata = {
+  title: "Privacy Policy | NONEP",
+  description: "Privacy Policy for the NONEP website.",
+};
 
 const sections = [
   {
-    title: "제1조 개인정보의 처리 목적",
+    title: "1. Introduction",
     body: [
-      "없는마케팅은 문의 응대, 서비스 상담, 프로젝트 제안, 계약 진행 및 고객 관리의 목적으로 개인정보를 처리합니다.",
-      "수집된 개인정보는 명시된 목적 이외의 용도로 사용되지 않으며, 이용 목적이 변경되는 경우 별도의 안내 또는 동의를 받습니다.",
+      "This Privacy Policy explains how NONEP collects, uses, stores, protects, and manages personal information when you access or use the NONEP website.",
+      "This policy applies to visitors, users, artists, producers, directors, collaborators, business partners, and any other individuals who interact with the website, submit inquiries, or provide materials through the contact form.",
     ],
   },
   {
-    title: "제2조 수집하는 개인정보 항목",
+    title: "2. Information We Collect",
     body: [
-      "회사는 문의 과정에서 이름, 연락처, 이메일 주소, 회사명, 브랜드명, 문의 내용 등을 수집할 수 있습니다.",
-      "서비스 이용 과정에서 접속 기록, 쿠키, IP 주소, 브라우저 정보 등이 자동으로 수집될 수 있습니다.",
+      "NONEP may collect personal information that you voluntarily provide through the contact form, including your name, email address, message content, and any files or materials you choose to attach.",
+      "When you access the website, certain technical information may be automatically processed by hosting, security, analytics, or infrastructure services. This may include IP address, browser type, device information, access time, referral URL, and basic usage data.",
+      "If you submit a demo file, project file, reference material, or other attachment, the file may contain personal information depending on the content you choose to provide.",
     ],
   },
   {
-    title: "제3조 개인정보의 처리 및 보유 기간",
+    title: "3. Purpose of Processing Personal Information",
     body: [
-      "개인정보는 수집 및 이용 목적이 달성된 후 지체 없이 파기합니다.",
-      "다만 관계 법령에 따라 보존할 필요가 있는 경우 해당 법령에서 정한 기간 동안 보관할 수 있습니다.",
+      "NONEP processes personal information for the purpose of receiving and responding to inquiries, reviewing submitted demos or project proposals, communicating with users, operating the website, maintaining security, preventing abuse, and managing business or collaboration opportunities.",
+      "Personal information may also be used to verify submitted requests, improve website operation, manage technical issues, and protect the rights, property, and safety of NONEP, its users, creators, and affiliated parties.",
     ],
   },
   {
-    title: "제4조 개인정보의 제3자 제공",
+    title: "4. Contact Form and Submitted Materials",
     body: [
-      "없는마케팅은 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다.",
-      "다만 이용자의 동의가 있거나 법령에 따라 요구되는 경우에는 예외적으로 제공될 수 있습니다.",
+      "When you use the contact form, the information you provide may be delivered to NONEP or its designated contact email address for review and response.",
+      "Submitted files may be reviewed only for the purpose of evaluating the inquiry, demo, collaboration proposal, production request, or related communication.",
+      "Submitting materials does not create any employment, agency, partnership, management, publishing, distribution, production, or contractual relationship unless a separate written agreement is made.",
     ],
   },
   {
-    title: "제5조 개인정보 처리의 위탁",
+    title: "5. Automatically Processed Data",
     body: [
-      "회사는 원활한 서비스 제공을 위해 필요한 경우 일부 업무를 외부 업체에 위탁할 수 있습니다.",
-      "위탁이 발생하는 경우 개인정보가 안전하게 처리될 수 있도록 필요한 관리와 감독을 진행합니다.",
+      "The website may use server logs, hosting logs, security logs, and technical diagnostics to maintain stability and protect the website from unauthorized access, spam, abuse, or malicious activity.",
+      "Some data may be processed by third-party infrastructure providers used to operate the website, such as hosting, database, storage, email, and API services.",
     ],
   },
   {
-    title: "제6조 정보주체의 권리",
+    title: "6. Third-Party Services",
     body: [
-      "이용자는 언제든지 본인의 개인정보에 대해 열람, 정정, 삭제, 처리 정지를 요청할 수 있습니다.",
-      "관련 요청은 회사의 이메일을 통해 접수할 수 있으며, 회사는 관련 법령에 따라 필요한 조치를 진행합니다.",
+      "NONEP may use third-party services for website hosting, database management, file storage, email delivery, YouTube data integration, security, and other operational purposes.",
+      "These third-party services may process limited information as necessary to provide their functions. Their processing is subject to their own privacy policies and service terms.",
+      "The website may contain links to external platforms, including YouTube, music streaming services, social media platforms, distributor pages, and other third-party websites. NONEP is not responsible for the privacy practices of external websites.",
     ],
   },
   {
-    title: "제7조 개인정보의 파기",
+    title: "7. YouTube and External Platform Data",
     body: [
-      "개인정보의 보유 기간이 경과하거나 처리 목적이 달성된 경우 해당 정보를 지체 없이 파기합니다.",
-      "전자적 파일 형태의 정보는 복구할 수 없는 방식으로 삭제하며, 종이 문서는 분쇄 또는 소각합니다.",
+      "Album pages may display publicly available or API-provided information, such as YouTube video statistics, links, or related metadata.",
+      "NONEP does not control how YouTube or other external platforms collect, process, store, or display user data. Use of such platforms is governed by their respective privacy policies and terms.",
     ],
   },
   {
-    title: "제8조 개인정보의 안전성 확보 조치",
+    title: "8. Retention Period",
     body: [
-      "회사는 개인정보의 안전한 관리를 위해 접근 권한 제한, 보안 프로그램 관리, 내부 관리 절차 수립 등 필요한 조치를 취합니다.",
+      "Personal information submitted through the contact form may be retained for as long as necessary to handle the inquiry, review the submitted materials, maintain communication records, resolve disputes, comply with legal obligations, or protect legitimate business interests.",
+      "If the information is no longer necessary for the purpose for which it was collected, NONEP will delete or anonymize it in a reasonable manner, unless retention is required or permitted by applicable law.",
     ],
   },
   {
-    title: "제9조 쿠키의 사용",
+    title: "9. Disclosure of Personal Information",
     body: [
-      "웹사이트는 이용자의 편의와 서비스 개선을 위해 쿠키를 사용할 수 있습니다.",
-      "이용자는 브라우저 설정을 통해 쿠키 저장을 거부하거나 삭제할 수 있습니다.",
+      "NONEP does not sell personal information to third parties.",
+      "Personal information may be shared only when necessary for website operation, inquiry handling, technical support, legal compliance, protection of rights, or with service providers who support hosting, email, storage, database, or security functions.",
+      "Personal information may also be disclosed if required by applicable law, legal process, government request, court order, or to protect the rights and safety of NONEP and related parties.",
     ],
   },
   {
-    title: "제10조 개인정보 보호책임자",
+    title: "10. International Processing",
     body: [
-      "개인정보 관련 문의는 아래 연락처를 통해 접수할 수 있습니다.",
-      "Business Inquiry: contact@upneun.co.kr",
+      "Depending on the infrastructure, hosting, email, database, storage, and API services used, personal information may be processed or stored in countries outside your place of residence.",
+      "NONEP takes reasonable steps to ensure that personal information is handled securely and only for the purposes described in this Privacy Policy.",
+    ],
+  },
+  {
+    title: "11. Security Measures",
+    body: [
+      "NONEP applies reasonable administrative, technical, and organizational measures to protect personal information from unauthorized access, disclosure, alteration, loss, misuse, or destruction.",
+      "However, no method of transmission over the internet or electronic storage is completely secure. NONEP will continue to improve its security practices as needed.",
+    ],
+  },
+  {
+    title: "12. User Rights",
+    body: [
+      "Depending on applicable law, you may have the right to request access to, correction of, deletion of, restriction of, or withdrawal of consent regarding your personal information.",
+      "If you wish to exercise your rights regarding personal information submitted through the website, you may contact NONEP using the contact information provided below.",
+      "NONEP may need to verify your identity before processing certain requests.",
+    ],
+  },
+  {
+    title: "13. Cookies and Similar Technologies",
+    body: [
+      "The website may use cookies or similar technologies for essential website operation, security, performance, analytics, or user experience purposes.",
+      "You may control or disable cookies through your browser settings. However, some website features may not function properly if cookies are disabled.",
+    ],
+  },
+  {
+    title: "14. Children’s Privacy",
+    body: [
+      "The NONEP website is not intended to collect personal information from children without appropriate consent where required by law.",
+      "If NONEP becomes aware that personal information from a child has been collected in a manner that requires deletion, NONEP will take reasonable steps to delete such information.",
+    ],
+  },
+  {
+    title: "15. Changes to This Privacy Policy",
+    body: [
+      "NONEP may update or modify this Privacy Policy from time to time.",
+      "Changes become effective when posted on this page. Continued use of the website after updates are posted constitutes acknowledgment of the updated policy.",
+    ],
+  },
+  {
+    title: "16. Contact Information",
+    body: [
+      "For questions, requests, or concerns regarding this Privacy Policy or the handling of personal information, please contact NONEP through the information below.",
+      "Business Inquiry: contact@animallounge.co.kr",
+      "Website: NONEP Official Website",
     ],
   },
 ];
 
 export default function PrivacyPage() {
   return (
-    <>
-      <SiteHeader />
+    <main className="min-h-screen bg-black text-white">
+      <section className="relative overflow-hidden border-t border-[#ff1493]/50 pt-[76px]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(255,20,147,0.22),transparent_30%),linear-gradient(180deg,#080008_0%,#000000_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_60%,rgba(0,0,0,1)_100%)]" />
 
-      <main className="bg-white text-[#08111f]">
-        <section className="border-b border-slate-100 pb-[72px] pt-[120px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <p className="mb-5 text-[12px] font-black uppercase tracking-[0.42em] text-blue-600">
-              Privacy Policy
+        <div className="relative mx-auto flex min-h-[330px] max-w-[1280px] items-end px-6 py-16 md:min-h-[400px] md:px-8 md:py-20">
+          <div>
+            <p className="mb-4 text-[11px] font-black uppercase tracking-[0.34em] text-[#ff1493]">
+              NONEP Legal
             </p>
 
-            <h1 className="text-[42px] font-black leading-[1.16] tracking-[-0.07em] md:text-[58px]">
-              개인정보처리방침
+            <h1 className="text-[44px] font-black uppercase leading-none tracking-[0.1em] text-white md:text-[78px]">
+              Privacy Policy
             </h1>
 
-            <p className="mt-6 max-w-[640px] text-[15px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[16px]">
-              없는마케팅은 이용자의 개인정보를 안전하게 보호하고,
-              <br />
-              관련 법령에 따라 필요한 범위 안에서 개인정보를 처리합니다.
+            <p className="mt-6 max-w-[760px] text-[15px] font-semibold leading-[1.9] text-white/58">
+              This Privacy Policy explains how NONEP handles personal
+              information collected through the website, contact form, submitted
+              materials, and related services.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1040px] px-6 py-14 md:px-8 md:py-16">
+        <div className="rounded-[28px] border border-white/10 bg-[#08080c] p-6 shadow-[0_0_42px_rgba(255,20,147,0.08)] md:p-9">
+          <div className="border-b border-white/10 pb-8">
+            <p className="text-[12px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
+              Effective Date
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3 text-[13px] font-bold tracking-[-0.03em] text-slate-500">
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                시행일 2026.01.01
-              </span>
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                없는마케팅
-              </span>
-            </div>
-          </div>
-        </section>
+            <p className="mt-3 text-[18px] font-bold text-white">
+              2026.05.23
+            </p>
 
-        <section className="py-[72px] md:py-[92px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <div className="grid gap-12 md:grid-cols-[220px_1fr]">
-              <aside className="hidden md:block">
-                <div className="sticky top-[110px] border-l border-slate-200 pl-5">
-                  <p className="mb-4 text-[12px] font-black uppercase tracking-[0.32em] text-blue-600">
-                    Index
-                  </p>
-                  <div className="space-y-2 text-[13px] font-bold leading-[1.6] tracking-[-0.03em] text-slate-400">
-                    <p>처리 목적</p>
-                    <p>수집 항목</p>
-                    <p>보유 기간</p>
-                    <p>제3자 제공</p>
-                    <p>파기</p>
-                    <p>보호책임자</p>
-                  </div>
+            <p className="mt-5 max-w-[780px] text-[14px] font-semibold leading-[1.9] text-white/52">
+              NONEP respects privacy and handles personal information only for
+              legitimate website operation, inquiry handling, communication,
+              security, and project review purposes.
+            </p>
+          </div>
+
+          <div className="mt-10 space-y-11">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-[24px] font-black uppercase leading-[1.2] tracking-[0.04em] text-white md:text-[28px]">
+                  {section.title}
+                </h2>
+
+                <div className="mt-5 space-y-4">
+                  {section.body.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="text-[14px] font-semibold leading-[1.9] text-white/58 md:text-[15px]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
-              </aside>
-
-              <div>
-                {sections.map((section, index) => (
-                  <article
-                    key={section.title}
-                    className="border-b border-slate-200 py-9 first:pt-0"
-                  >
-                    <div className="flex gap-6">
-                      <span className="mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-[12px] font-black text-blue-600 md:flex">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <div>
-                        <h2 className="text-[22px] font-black leading-[1.35] tracking-[-0.06em] md:text-[26px]">
-                          {section.title}
-                        </h2>
-
-                        <div className="mt-5 space-y-3">
-                          {section.body.map((text) => (
-                            <p
-                              key={text}
-                              className="text-[14px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[15px]"
-                            >
-                              {text}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+              </section>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
 
-      <SiteFooter />
-    </>
+        <div className="mt-8 rounded-[24px] border border-[#ff1493]/24 bg-[#ff1493]/[0.04] p-6">
+          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-[#ff1493]">
+            Privacy Notice
+          </p>
+
+          <p className="mt-4 text-[14px] font-semibold leading-[1.9] text-white/54">
+            This page is provided as the official Privacy Policy for the NONEP
+            website. Additional notices may be provided separately when specific
+            services, campaigns, submissions, or collaborations require
+            additional information.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

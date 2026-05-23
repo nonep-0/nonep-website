@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { logoutAdminAction } from "../login/actions";
 
 const adminNavItems = [
   { href: "/admin", label: "대시보드" },
@@ -23,7 +24,7 @@ export default function AdminShell({
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="mb-3 text-[11px] font-black uppercase tracking-[0.32em] text-[#ff1493]">
-                NONEP 관리자
+                NONEP Admin
               </p>
 
               <h1 className="text-[42px] font-black uppercase leading-none tracking-[0.08em] text-white md:text-[64px]">
@@ -35,12 +36,23 @@ export default function AdminShell({
               </p>
             </div>
 
-            <Link
-              href="/"
-              className="inline-flex h-[42px] items-center justify-center rounded-full border border-[#ff1493]/55 px-5 text-[10.5px] font-black uppercase tracking-[0.18em] text-white/90 transition hover:bg-[#ff1493] hover:text-black"
-            >
-              사이트 확인
-            </Link>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/"
+                className="inline-flex h-[42px] items-center justify-center rounded-full border border-[#ff1493]/55 px-5 text-[10.5px] font-black uppercase tracking-[0.18em] text-white/90 transition hover:bg-[#ff1493] hover:text-black"
+              >
+                View Site
+              </Link>
+
+              <form action={logoutAdminAction}>
+                <button
+                  type="submit"
+                  className="inline-flex h-[42px] items-center justify-center rounded-full border border-white/12 bg-white/[0.03] px-5 text-[10.5px] font-black uppercase tracking-[0.18em] text-white/60 transition hover:border-red-500/60 hover:bg-red-500/10 hover:text-red-300"
+                >
+                  Logout
+                </button>
+              </form>
+            </div>
           </div>
 
           <nav className="mt-8 flex flex-wrap gap-2">

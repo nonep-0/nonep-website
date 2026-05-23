@@ -1,123 +1,132 @@
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+export const metadata = {
+  title: "Email Collection Refusal | NONEP",
+  description: "Email Collection Refusal notice for the NONEP website.",
+};
 
 const sections = [
   {
-    title: "이메일 주소 무단 수집 거부",
+    title: "1. Prohibition of Unauthorized Email Collection",
     body: [
-      "본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부합니다.",
-      "이를 위반하여 무단으로 이메일 주소를 수집하거나 영리 목적의 광고성 정보를 발송하는 행위는 관련 법령에 따라 제재를 받을 수 있습니다.",
+      "Email addresses posted on the NONEP website must not be collected without permission by using email collection programs, automated tools, bots, scraping methods, or any other technical means.",
+      "Any unauthorized collection, storage, distribution, sale, or use of email addresses published on this website is strictly prohibited.",
     ],
   },
   {
-    title: "수집 금지 대상",
+    title: "2. Purpose of This Notice",
     body: [
-      "웹사이트에 게시된 회사 이메일, 문의용 이메일, 담당자 연락처 등은 무단 수집의 대상이 될 수 없습니다.",
-      "이메일 주소는 이용자의 정당한 문의 및 회사와의 정상적인 커뮤니케이션을 위한 용도로만 사용할 수 있습니다.",
+      "This notice is provided to protect the email addresses displayed on the NONEP website from spam, unauthorized commercial messages, phishing attempts, bulk mailing, and other misuse.",
+      "Email addresses provided on this website are made available only for legitimate business inquiries, project communication, collaboration proposals, production requests, and official contact purposes.",
     ],
   },
   {
-    title: "광고성 정보 발송 금지",
+    title: "3. Prohibited Actions",
     body: [
-      "사전 동의 없이 회사 이메일로 광고성 정보, 홍보성 자료, 스팸성 메일을 발송하는 행위를 금지합니다.",
-      "반복적이거나 악의적인 발송 행위에 대해서는 필요한 차단 및 대응 조치를 진행할 수 있습니다.",
+      "Users may not collect email addresses from this website through automated scraping, crawling, data mining, extraction tools, bots, scripts, software, or manual bulk collection.",
+      "Users may not use collected email addresses for spam, unauthorized advertisements, promotional messages, phishing, impersonation, malicious contact, or any activity unrelated to legitimate communication with NONEP.",
+      "Users may not sell, transfer, disclose, share, or distribute email addresses found on this website to third parties without prior written permission.",
     ],
   },
   {
-    title: "문의",
+    title: "4. Legal Responsibility",
     body: [
-      "본 고지와 관련한 문의는 아래 연락처를 통해 접수할 수 있습니다.",
-      "Business Inquiry: contact@upneun.co.kr",
+      "Any person or organization that violates this notice may be subject to restrictions, claims, legal responsibility, or other measures under applicable laws and regulations.",
+      "NONEP reserves the right to take appropriate action against unauthorized email collection, misuse of contact information, spam activity, phishing attempts, or any conduct that harms the operation, reputation, or security of the website.",
+    ],
+  },
+  {
+    title: "5. Permitted Contact Use",
+    body: [
+      "You may use the official contact email address or contact form only for legitimate purposes, including business inquiries, demo submissions, collaboration proposals, project requests, production inquiries, or other relevant communication.",
+      "Messages that are abusive, misleading, fraudulent, automated, irrelevant, malicious, or promotional without permission may be ignored, blocked, deleted, or reported.",
+    ],
+  },
+  {
+    title: "6. Contact",
+    body: [
+      "For legitimate inquiries, please use the official contact page or the contact information provided on the NONEP website.",
+      "Business Inquiry: contact@animallounge.co.kr",
     ],
   },
 ];
 
-export default function UnsubscribePage() {
+export default function EmailCollectionRefusalPage() {
   return (
-    <>
-      <SiteHeader />
+    <main className="min-h-screen bg-black text-white">
+      <section className="relative overflow-hidden border-t border-[#ff1493]/50 pt-[76px]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(255,20,147,0.22),transparent_30%),linear-gradient(180deg,#080008_0%,#000000_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_60%,rgba(0,0,0,1)_100%)]" />
 
-      <main className="bg-white text-[#08111f]">
-        <section className="border-b border-slate-100 pb-[72px] pt-[120px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <p className="mb-5 text-[12px] font-black uppercase tracking-[0.42em] text-blue-600">
-              Email Collection Rejection
+        <div className="relative mx-auto flex min-h-[330px] max-w-[1280px] items-end px-6 py-16 md:min-h-[400px] md:px-8 md:py-20">
+          <div>
+            <p className="mb-4 text-[11px] font-black uppercase tracking-[0.34em] text-[#ff1493]">
+              NONEP Legal
             </p>
 
-            <h1 className="text-[42px] font-black leading-[1.16] tracking-[-0.07em] md:text-[58px]">
-              이메일 무단 수집거부
+            <h1 className="text-[38px] font-black uppercase leading-[1.05] tracking-[0.08em] text-white md:text-[72px]">
+              Email Collection Refusal
             </h1>
 
-            <p className="mt-6 max-w-[680px] text-[15px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[16px]">
-              없는마케팅 웹사이트에 게시된 이메일 주소의 무단 수집 및
-              광고성 정보 발송을 거부합니다.
+            <p className="mt-6 max-w-[760px] text-[15px] font-semibold leading-[1.9] text-white/58">
+              This notice prohibits the unauthorized collection, storage,
+              distribution, sale, or misuse of email addresses displayed on the
+              NONEP website.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1040px] px-6 py-14 md:px-8 md:py-16">
+        <div className="rounded-[28px] border border-white/10 bg-[#08080c] p-6 shadow-[0_0_42px_rgba(255,20,147,0.08)] md:p-9">
+          <div className="border-b border-white/10 pb-8">
+            <p className="text-[12px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
+              Effective Date
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3 text-[13px] font-bold tracking-[-0.03em] text-slate-500">
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                시행일 2026.01.01
-              </span>
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                없는마케팅
-              </span>
-            </div>
-          </div>
-        </section>
+            <p className="mt-3 text-[18px] font-bold text-white">
+              2026.05.23
+            </p>
 
-        <section className="py-[72px] md:py-[92px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <div className="grid gap-12 md:grid-cols-[220px_1fr]">
-              <aside className="hidden md:block">
-                <div className="sticky top-[110px] border-l border-slate-200 pl-5">
-                  <p className="mb-4 text-[12px] font-black uppercase tracking-[0.32em] text-blue-600">
-                    Index
-                  </p>
-                  <div className="space-y-2 text-[13px] font-bold leading-[1.6] tracking-[-0.03em] text-slate-400">
-                    <p>무단 수집 거부</p>
-                    <p>수집 금지 대상</p>
-                    <p>광고성 정보 금지</p>
-                    <p>문의</p>
-                  </div>
+            <p className="mt-5 max-w-[780px] text-[14px] font-semibold leading-[1.9] text-white/52">
+              Email addresses published on this website are provided only for
+              legitimate communication with NONEP. Unauthorized collection or
+              misuse of these email addresses is prohibited.
+            </p>
+          </div>
+
+          <div className="mt-10 space-y-11">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-[24px] font-black uppercase leading-[1.2] tracking-[0.04em] text-white md:text-[28px]">
+                  {section.title}
+                </h2>
+
+                <div className="mt-5 space-y-4">
+                  {section.body.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="text-[14px] font-semibold leading-[1.9] text-white/58 md:text-[15px]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
-              </aside>
-
-              <div>
-                {sections.map((section, index) => (
-                  <article
-                    key={section.title}
-                    className="border-b border-slate-200 py-9 first:pt-0"
-                  >
-                    <div className="flex gap-6">
-                      <span className="mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-[12px] font-black text-blue-600 md:flex">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <div>
-                        <h2 className="text-[22px] font-black leading-[1.35] tracking-[-0.06em] md:text-[26px]">
-                          {section.title}
-                        </h2>
-
-                        <div className="mt-5 space-y-3">
-                          {section.body.map((text) => (
-                            <p
-                              key={text}
-                              className="text-[14px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[15px]"
-                            >
-                              {text}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+              </section>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
 
-      <SiteFooter />
-    </>
+        <div className="mt-8 rounded-[24px] border border-[#ff1493]/24 bg-[#ff1493]/[0.04] p-6">
+          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-[#ff1493]">
+            Email Protection Notice
+          </p>
+
+          <p className="mt-4 text-[14px] font-semibold leading-[1.9] text-white/54">
+            NONEP does not permit the unauthorized collection of email addresses
+            displayed on this website. Please use the official contact form or
+            business inquiry email only for legitimate communication.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

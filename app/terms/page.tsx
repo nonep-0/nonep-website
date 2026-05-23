@@ -1,202 +1,201 @@
-import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
+export const metadata = {
+  title: "Terms of Use | NONEP",
+  description: "Terms of Use for the NONEP website.",
+};
 
 const sections = [
   {
-    title: "제1조 목적",
+    title: "1. Acceptance of Terms",
     body: [
-      "본 약관은 없는마케팅이 제공하는 웹사이트 및 관련 서비스의 이용과 관련하여 회사와 이용자 간의 권리, 의무 및 책임사항을 정하는 것을 목적으로 합니다.",
+      "By accessing or using the NONEP website, you agree to be bound by these Terms of Use. If you do not agree to these terms, please discontinue use of the website.",
+      "These Terms apply to all visitors, users, artists, creators, collaborators, and any other parties who access the website.",
     ],
   },
   {
-    title: "제2조 용어의 정의",
+    title: "2. About NONEP",
     body: [
-      "‘회사’란 없는마케팅을 의미합니다.",
-      "‘서비스’란 회사가 웹사이트를 통해 제공하는 브랜드 진단, 콘텐츠 기획, 마케팅 상담, 제작 문의 및 관련 정보를 의미합니다.",
-      "‘이용자’란 본 웹사이트에 접속하여 서비스를 이용하는 모든 방문자 및 문의자를 의미합니다.",
+      "NONEP is a creative music and visual label platform operated for the purpose of presenting artists, producers, directors, albums, releases, credits, visual works, and related creative content.",
+      "The website may include information about music releases, producer profiles, director profiles, project archives, promotional materials, contact forms, and related media.",
     ],
   },
   {
-    title: "제3조 약관의 효력 및 변경",
+    title: "3. Use of the Website",
     body: [
-      "본 약관은 웹사이트에 게시함으로써 효력이 발생합니다.",
-      "회사는 필요한 경우 관련 법령을 위반하지 않는 범위에서 본 약관을 변경할 수 있습니다.",
-      "변경된 약관은 웹사이트에 게시된 시점부터 효력이 발생합니다.",
+      "You may use this website for personal, informational, promotional, and inquiry purposes only.",
+      "You agree not to misuse the website, interfere with its normal operation, attempt unauthorized access to restricted areas, or use the website for unlawful, harmful, misleading, or abusive purposes.",
+      "You may not copy, scrape, reproduce, redistribute, sell, modify, or exploit any part of the website or its content without prior written permission from NONEP or the relevant rights holder.",
     ],
   },
   {
-    title: "제4조 서비스의 제공",
+    title: "4. Intellectual Property",
     body: [
-      "회사는 브랜드 스토리 설계, 콘텐츠 기획, 숏폼 및 영상 콘텐츠 제작, 마케팅 전략 상담 등 브랜드 성장에 필요한 서비스를 제공합니다.",
-      "서비스의 구체적인 범위와 진행 방식은 이용자의 문의 내용 및 협의에 따라 달라질 수 있습니다.",
+      "All content displayed on this website, including but not limited to names, logos, images, illustrations, music-related materials, album artwork, videos, text, layouts, designs, graphics, and visual assets, is protected by intellectual property laws.",
+      "Unless otherwise stated, all website content is owned by NONEP, Animal Lounge, FirstClass, affiliated creators, artists, producers, directors, or licensed third parties.",
+      "No ownership rights are transferred to users by accessing or using this website.",
     ],
   },
   {
-    title: "제5조 서비스 이용 및 문의",
+    title: "5. Music, Album, Producer, and Director Information",
     body: [
-      "이용자는 웹사이트 내 문의 양식 또는 회사가 안내한 연락 수단을 통해 서비스 문의를 할 수 있습니다.",
-      "이용자는 문의 시 정확한 정보를 제공해야 하며, 허위 정보로 인해 발생하는 문제에 대한 책임은 이용자에게 있습니다.",
+      "Information displayed on album, producer, and director pages is provided for promotional and archival purposes.",
+      "NONEP may update, edit, remove, or reorganize release information, credits, descriptions, images, links, statistics, and profile details at any time without prior notice.",
+      "Streaming numbers, YouTube views, release dates, external links, credits, and other metadata may be updated automatically or manually and may not always reflect real-time data.",
     ],
   },
   {
-    title: "제6조 회사의 의무",
+    title: "6. External Links and Third-Party Services",
     body: [
-      "회사는 안정적인 서비스 제공을 위해 필요한 노력을 다합니다.",
-      "회사는 이용자의 개인정보를 관련 법령 및 개인정보처리방침에 따라 보호합니다.",
-      "회사는 이용자의 문의 내용과 브랜드 정보를 외부에 무단으로 공개하지 않습니다.",
+      "This website may contain links to third-party platforms, including but not limited to YouTube, music streaming services, social media platforms, distribution platforms, and external websites.",
+      "NONEP is not responsible for the content, policies, availability, accuracy, or practices of third-party services.",
+      "Use of third-party services is subject to the terms and policies of those respective platforms.",
     ],
   },
   {
-    title: "제7조 이용자의 의무",
+    title: "7. Contact Form and Submitted Materials",
     body: [
-      "이용자는 서비스 이용 시 관련 법령, 본 약관 및 회사의 안내사항을 준수해야 합니다.",
-      "이용자는 타인의 권리를 침해하거나 회사의 정상적인 서비스 운영을 방해하는 행위를 해서는 안 됩니다.",
-      "이용자는 문의 또는 상담 과정에서 타인의 저작권, 초상권, 상표권 등 권리를 침해하는 자료를 제공해서는 안 됩니다.",
+      "Users may submit inquiries, demos, files, collaboration proposals, or project-related messages through the contact form.",
+      "By submitting materials, you confirm that you have the right to share those materials and that your submission does not infringe upon the rights of any third party.",
+      "Submission of materials does not create any employment, agency, partnership, management, distribution, publishing, production, or contractual relationship with NONEP unless a separate written agreement is made.",
+      "NONEP is not obligated to review, respond to, accept, store, return, or compensate any submitted materials.",
     ],
   },
   {
-    title: "제8조 저작권 및 콘텐츠 권리",
+    title: "8. Prohibited Conduct",
     body: [
-      "회사가 제작한 기획안, 문구, 영상, 디자인, 콘텐츠 구조 및 기타 산출물의 권리는 별도 계약 또는 협의 내용에 따릅니다.",
-      "이용자는 회사의 사전 동의 없이 회사가 제공한 자료를 무단 복제, 배포, 수정, 판매하거나 제3자에게 제공할 수 없습니다.",
-      "프로젝트 진행 중 제공되는 레퍼런스, 초안, 제안서는 최종 계약 여부와 관계없이 회사의 지식재산으로 보호될 수 있습니다.",
+      "You agree not to upload, submit, transmit, or distribute any content that is unlawful, defamatory, threatening, obscene, abusive, discriminatory, infringing, misleading, or harmful.",
+      "You may not attempt to reverse engineer, disrupt, overload, damage, or gain unauthorized access to the website, server, database, administrator pages, or related systems.",
+      "You may not impersonate another person, organization, artist, producer, director, company, or representative when using the website.",
     ],
   },
   {
-    title: "제9조 계약 및 비용",
+    title: "9. Admin and Restricted Areas",
     body: [
-      "서비스 비용, 범위, 일정, 납품 방식은 개별 협의 또는 계약서에 따릅니다.",
-      "계약 체결 전 제공되는 상담이나 제안의 범위는 회사의 내부 기준에 따라 제한될 수 있습니다.",
-      "이미 진행된 기획, 제작, 촬영, 편집, 운영 업무에 대한 비용은 협의된 기준에 따라 청구될 수 있습니다.",
+      "Certain parts of the website may be restricted to authorized administrators only.",
+      "Unauthorized access or attempted access to administrator pages, databases, upload systems, storage areas, or internal management tools is strictly prohibited.",
+      "NONEP may monitor, restrict, suspend, or block access to protect the security and integrity of the website.",
     ],
   },
   {
-    title: "제10조 서비스의 제한 및 중단",
+    title: "10. Accuracy and Availability",
     body: [
-      "회사는 시스템 점검, 서버 장애, 천재지변, 운영상 필요 등 부득이한 사유가 있는 경우 서비스 제공을 일시적으로 제한하거나 중단할 수 있습니다.",
-      "회사는 이용자가 본 약관을 위반하거나 부정한 목적으로 서비스를 이용하는 경우 서비스 이용을 제한할 수 있습니다.",
+      "NONEP makes reasonable efforts to keep website information accurate and available, but does not guarantee that all content will always be complete, current, error-free, uninterrupted, or secure.",
+      "The website may be modified, suspended, discontinued, updated, or restricted at any time without prior notice.",
     ],
   },
   {
-    title: "제11조 면책사항",
+    title: "11. Limitation of Liability",
     body: [
-      "회사는 이용자가 제공한 정보의 오류 또는 누락으로 인해 발생한 문제에 대해 책임을 지지 않습니다.",
-      "마케팅 및 콘텐츠 성과는 플랫폼 환경, 예산, 소재, 타이밍, 시장 상황 등에 따라 달라질 수 있으며, 회사는 특정 수치의 성과를 보장하지 않습니다.",
-      "회사는 이용자의 귀책사유로 발생한 손해에 대해 책임을 지지 않습니다.",
+      "To the maximum extent permitted by applicable law, NONEP shall not be liable for any direct, indirect, incidental, consequential, special, punitive, or other damages arising from your use of, inability to use, or reliance on the website.",
+      "This includes, but is not limited to, damages related to errors, delays, interruptions, data loss, unauthorized access, third-party links, submitted materials, or external platform issues.",
     ],
   },
   {
-    title: "제12조 개인정보 보호",
+    title: "12. Privacy",
     body: [
-      "회사는 이용자의 개인정보를 개인정보처리방침에 따라 처리합니다.",
-      "개인정보의 수집, 이용, 보관 및 파기에 관한 구체적인 사항은 별도의 개인정보처리방침에서 확인할 수 있습니다.",
+      "The collection and handling of personal information through the website is governed by the Privacy Policy.",
+      "By using the website or submitting information through the contact form, you acknowledge that your information may be processed for inquiry handling, communication, project review, and website operation purposes.",
     ],
   },
   {
-    title: "제13조 분쟁 해결",
+    title: "13. Changes to These Terms",
     body: [
-      "회사와 이용자 간 분쟁이 발생한 경우 양 당사자는 원만한 해결을 위해 성실히 협의합니다.",
-      "협의로 해결되지 않는 분쟁은 관련 법령 및 관할 법원의 판단에 따릅니다.",
+      "NONEP may update or modify these Terms of Use at any time.",
+      "Changes become effective when posted on this page. Continued use of the website after changes are posted constitutes acceptance of the updated Terms.",
     ],
   },
   {
-    title: "제14조 문의",
+    title: "14. Governing Law",
     body: [
-      "본 약관과 관련한 문의는 아래 연락처를 통해 접수할 수 있습니다.",
-      "Business Inquiry: contact@upneun.co.kr",
+      "These Terms of Use shall be governed by and interpreted in accordance with the laws of the Republic of Korea, unless otherwise required by applicable law.",
+      "Any disputes arising from or related to these Terms or the use of the website shall be handled by the competent courts of the Republic of Korea.",
+    ],
+  },
+  {
+    title: "15. Contact",
+    body: [
+      "For questions regarding these Terms of Use, please contact us through the official contact information provided on the website.",
+      "Business Inquiry: contact@animallounge.co.kr",
     ],
   },
 ];
 
 export default function TermsPage() {
   return (
-    <>
-      <SiteHeader />
+    <main className="min-h-screen bg-black text-white">
+      <section className="relative overflow-hidden border-t border-[#ff1493]/50 pt-[76px]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_12%,rgba(255,20,147,0.22),transparent_30%),linear-gradient(180deg,#080008_0%,#000000_72%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_0%,rgba(0,0,0,0.58)_60%,rgba(0,0,0,1)_100%)]" />
 
-      <main className="bg-white text-[#08111f]">
-        <section className="border-b border-slate-100 pt-[120px] pb-[72px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <p className="mb-5 text-[12px] font-black uppercase tracking-[0.42em] text-blue-600">
-              Terms of Service
+        <div className="relative mx-auto flex min-h-[330px] max-w-[1280px] items-end px-6 py-16 md:min-h-[400px] md:px-8 md:py-20">
+          <div>
+            <p className="mb-4 text-[11px] font-black uppercase tracking-[0.34em] text-[#ff1493]">
+              NONEP Legal
             </p>
 
-            <h1 className="text-[42px] font-black leading-[1.16] tracking-[-0.07em] md:text-[58px]">
-              이용 약관
+            <h1 className="text-[48px] font-black uppercase leading-none tracking-[0.12em] text-white md:text-[82px]">
+              Terms of Use
             </h1>
 
-            <p className="mt-6 max-w-[620px] text-[15px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[16px]">
-              없는마케팅 웹사이트 및 서비스 이용과 관련된 기본 약관입니다.
-              <br />
-              문의, 상담, 제작 진행 시 아래 내용을 기준으로 합니다.
+            <p className="mt-6 max-w-[720px] text-[15px] font-semibold leading-[1.9] text-white/58">
+              These Terms of Use govern your access to and use of the NONEP
+              website, services, content, and related pages.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[1040px] px-6 py-14 md:px-8 md:py-16">
+        <div className="rounded-[28px] border border-white/10 bg-[#08080c] p-6 shadow-[0_0_42px_rgba(255,20,147,0.08)] md:p-9">
+          <div className="border-b border-white/10 pb-8">
+            <p className="text-[12px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
+              Effective Date
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-3 text-[13px] font-bold tracking-[-0.03em] text-slate-500">
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                시행일 2026.01.01
-              </span>
-              <span className="rounded-full border border-slate-200 px-4 py-2">
-                없는마케팅
-              </span>
-            </div>
-          </div>
-        </section>
+            <p className="mt-3 text-[18px] font-bold text-white">
+              2026.05.23
+            </p>
 
-        <section className="py-[72px] md:py-[92px]">
-          <div className="mx-auto max-w-[980px] px-6 md:px-0">
-            <div className="grid gap-12 md:grid-cols-[220px_1fr]">
-              <aside className="hidden md:block">
-                <div className="sticky top-[110px] border-l border-slate-200 pl-5">
-                  <p className="mb-4 text-[12px] font-black uppercase tracking-[0.32em] text-blue-600">
-                    Index
-                  </p>
-                  <div className="space-y-2 text-[13px] font-bold leading-[1.6] tracking-[-0.03em] text-slate-400">
-                    <p>목적</p>
-                    <p>서비스 제공</p>
-                    <p>권리와 의무</p>
-                    <p>저작권</p>
-                    <p>면책사항</p>
-                    <p>분쟁 해결</p>
-                  </div>
+            <p className="mt-5 max-w-[780px] text-[14px] font-semibold leading-[1.9] text-white/52">
+              Please read these Terms carefully before using the NONEP website.
+              The website is operated as a creative archive, promotional
+              platform, and contact channel for NONEP-related projects.
+            </p>
+          </div>
+
+          <div className="mt-10 space-y-11">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-[24px] font-black uppercase leading-[1.2] tracking-[0.04em] text-white md:text-[28px]">
+                  {section.title}
+                </h2>
+
+                <div className="mt-5 space-y-4">
+                  {section.body.map((paragraph) => (
+                    <p
+                      key={paragraph}
+                      className="text-[14px] font-semibold leading-[1.9] text-white/58 md:text-[15px]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
-              </aside>
-
-              <div className="space-y-0">
-                {sections.map((section, index) => (
-                  <article
-                    key={section.title}
-                    className="border-b border-slate-200 py-9 first:pt-0"
-                  >
-                    <div className="flex gap-6">
-                      <span className="mt-1 hidden h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-[12px] font-black text-blue-600 md:flex">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <div>
-                        <h2 className="text-[22px] font-black leading-[1.35] tracking-[-0.06em] text-[#08111f] md:text-[26px]">
-                          {section.title}
-                        </h2>
-
-                        <div className="mt-5 space-y-3">
-                          {section.body.map((text) => (
-                            <p
-                              key={text}
-                              className="text-[14px] font-medium leading-[1.9] tracking-[-0.04em] text-slate-600 md:text-[15px]"
-                            >
-                              {text}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
+              </section>
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
 
-      <SiteFooter />
-    </>
+        <div className="mt-8 rounded-[24px] border border-[#ff1493]/24 bg-[#ff1493]/[0.04] p-6">
+          <p className="text-[11px] font-black uppercase tracking-[0.26em] text-[#ff1493]">
+            NONEP
+          </p>
+
+          <p className="mt-4 text-[14px] font-semibold leading-[1.9] text-white/54">
+            This page is provided as the official Terms of Use for the NONEP
+            website. Related policies may be provided separately through the
+            Privacy Policy, Legal Notice, or other policy pages.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }
