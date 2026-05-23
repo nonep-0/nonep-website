@@ -43,6 +43,12 @@ function formatProducerNumber(value?: string | null) {
   return `NO.${onlyNumber.padStart(3, "0")}`;
 }
 
+function isUuid(value: string) {
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+    value
+  );
+}
+
 export default async function ProducerDetailPage({
   params,
 }: ProducerDetailPageProps) {
@@ -50,16 +56,11 @@ export default async function ProducerDetailPage({
 
   const { id } = await params;
 
-  const isUuid =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-    id
-  );
+  const query = supabaseAdmin.from("producers").select("*");
 
-const query = supabaseAdmin.from("producers").select("*");
-
-const { data: producer, error } = isUuid
-  ? await query.eq("id", id).maybeSingle()
-  : await query.eq("slug", id).maybeSingle();
+  const { data: producer, error } = isUuid(id)
+    ? await query.eq("id", id).maybeSingle()
+    : await query.eq("slug", id).maybeSingle();
 
   if (error) {
     return (
@@ -112,14 +113,6 @@ const { data: producer, error } = isUuid
             {id}
           </p>
 
-          <p className="mt-6 text-[14px] font-semibold leading-[1.8] text-white/48">
-            Supabase producers 테이블에서 slug 값이 정확히{" "}
-            <span className="text-white">akayuki</span>인지 확인해줘.
-            <br />
-            예를 들어 slug가 <span className="text-white">aka yuki</span>로
-            저장되어 있으면 현재 주소와 매칭되지 않아.
-          </p>
-
           <Link
             href="/producers"
             className="mt-8 inline-flex rounded-full border border-[#ff1493]/60 px-5 py-3 text-[12px] font-black uppercase tracking-[0.18em] text-white"
@@ -143,9 +136,7 @@ const { data: producer, error } = isUuid
     currentProducer.profile_image_url ||
     "/source/producers-hero.png";
 
-  const producerNumber = formatProducerNumber(
-    currentProducer.producer_number
-  );
+  const producerNumber = formatProducerNumber(currentProducer.producer_number);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -189,26 +180,30 @@ const { data: producer, error } = isUuid
           <span>Back to Producers</span>
         </Link>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-[480px_1fr]">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[520px_1fr]">
           <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#08080c] shadow-[0_0_42px_rgba(255,20,147,0.12)]">
-            <div className="relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[16/10] overflow-hidden bg-black">
               <img
                 src={profileImage}
                 alt={currentProducer.name}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-center"
               />
 
-              <div className="absolute left-5 top-5 rounded-full bg-white/85 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-black">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/12 to-transparent" />
+
+              <div className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-black">
                 {currentProducer.role || "Producer"}
               </div>
 
-              <div className="absolute right-5 top-5 rounded-full border border-[#ff1493]/40 bg-[#ff1493]/12 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#ff1493] backdrop-blur">
+              <div className="absolute right-5 top-5 rounded-full border border-[#ff1493]/40 bg-black/40 px-4 py-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#ff1493] backdrop-blur">
                 {producerNumber}
               </div>
 
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/76 to-transparent p-6">
+              <div className="absolute inset-x-0 bottom-0 p-6">
                 <p className="text-[11px] font-black uppercase tracking-[0.24em] text-[#ff1493]">
-                  {currentProducer.meaning || currentProducer.role || "Producer"}
+                  {currentProducer.meaning ||
+                    currentProducer.role ||
+                    "Producer"}
                 </p>
 
                 <h2 className="mt-3 text-[38px] font-black uppercase leading-none tracking-[0.08em] text-white">
@@ -272,7 +267,9 @@ const { data: producer, error } = isUuid
               </div>
 
               <div className="grid grid-cols-[120px_1fr] gap-4">
-                <p className="text-[15px] font-black text-[#ff1493]">Meaning</p>
+                <p className="text-[15px] font-black text-[#ff1493]">
+                  Meaning
+                </p>
                 <p className="text-[15px] font-bold text-white">
                   {currentProducer.meaning || "-"}
                 </p>

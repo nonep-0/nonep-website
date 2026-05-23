@@ -24,7 +24,13 @@ type Producer = {
 function formatProducerNumber(value?: string | null) {
   if (!value) return "NO.---";
 
-  const onlyNumber = String(value).replace(/[^\d]/g, "");
+  const rawValue = String(value).trim();
+
+  if (rawValue.toUpperCase().startsWith("NO.")) {
+    return rawValue.toUpperCase();
+  }
+
+  const onlyNumber = rawValue.replace(/[^\d]/g, "");
 
   if (!onlyNumber) return "NO.---";
 
@@ -70,17 +76,17 @@ function ProducerCard({ producer }: { producer: Producer }) {
 
   return (
     <Link
-      href={`/producers/${producer.slug}`}
+      href={`/producers/${producer.slug || producer.id}`}
       className="group overflow-hidden rounded-[22px] border border-white/10 bg-[#0a0a0f] transition duration-300 hover:-translate-y-1 hover:border-[#ff1493]/60 hover:shadow-[0_18px_46px_rgba(255,20,147,0.16)]"
     >
-      <div className="relative aspect-[16/10] overflow-hidden bg-[#111118]">
+      <div className="relative aspect-[16/10] overflow-hidden bg-black">
         <img
           src={image}
           alt={producer.name}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/16 to-transparent" />
 
         <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[9px] font-black uppercase tracking-[0.16em] text-white/82 backdrop-blur-sm">
           {producer.role || "Producer"}
