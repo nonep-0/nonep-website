@@ -491,7 +491,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
             <h1 className="max-w-[900px] text-[52px] font-black uppercase leading-[0.95] tracking-[0.08em] text-white md:text-[92px]">
               NONEP
               <br />
-              Creators Label
+              Vocaloid P Label
             </h1>
 
             <p className="mt-7 max-w-[640px] text-[15px] font-semibold leading-[1.9] text-white/62 md:text-[16px]">
