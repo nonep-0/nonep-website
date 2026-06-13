@@ -51,10 +51,10 @@ export default function SiteFooter() {
             <p className="text-[12px] font-medium tracking-[-0.02em] text-white/72">
               Business Inquiry:{" "}
               <a
-                href="mailto:contact@animallounge.co.kr"
+                href="mailto:contact@nonep.co.kr"
                 className="transition hover:text-[#ff1493]"
               >
-                contact@animallounge.co.kr
+                contact@nonep.co.kr
               </a>
             </p>
 

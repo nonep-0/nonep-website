@@ -1,74 +1,124 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import {
-  slugify,
-  supabaseAdmin,
-  uploadAdminImage,
-} from "@/lib/supabase/admin";
+import { redirect } from "next/navigation";
+import { parseNumber, slugify, supabaseAdmin, uploadAdminImage } from "@/lib/supabase/admin";
+
+function getString(formData: FormData, key: string) {
+  const value = formData.get(key);
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function getFile(formData: FormData, key: string) {
+  const value = formData.get(key);
+  if (!(value instanceof File) || value.size === 0) return null;
+  return value;
+}
+
+function encodeMessage(message: string) {
+  return encodeURIComponent(message.slice(0, 300));
+}
+
+function nullable(value: string) {
+  return value ? value : null;
+}
+
+function directorPayloadFromForm(formData: FormData, urls?: { profile?: string | null; cover?: string | null }) {
+  const name = getString(formData, "name");
+  const slug = getString(formData, "slug") || slugify(name);
+
+  const payload: Record<string, string | number | boolean | null> = {
+    name,
+    slug,
+    japanese_name: nullable(getString(formData, "japanese_name")),
+    role: getString(formData, "role") || "Director",
+    position: nullable(getString(formData, "position")),
+    description: nullable(getString(formData, "description")),
+    signature: nullable(getString(formData, "signature")),
+    display_order: parseNumber(getString(formData, "display_order") || "999"),
+    is_published: true,
+  };
+
+  if (urls?.profile) payload.profile_image_url = urls.profile;
+  if (urls?.cover) payload.cover_image_url = urls.cover;
+
+  return payload;
+}
+
+async function uploadDirectorImages(formData: FormData, slug: string) {
+  const [profile, cover] = await Promise.all([
+    uploadAdminImage({ bucket: "director-images", folder: `profiles/${slug}`, file: getFile(formData, "profile_image") }),
+    uploadAdminImage({ bucket: "director-images", folder: `covers/${slug}`, file: getFile(formData, "cover_image") }),
+  ]);
+  return { profile, cover };
+}
 
 export async function createDirectorAction(formData: FormData) {
-  const name = String(formData.get("name") || "").trim();
-  const slugInput = String(formData.get("slug") || "").trim();
-  const slug = slugify(slugInput || name);
+  const name = getString(formData, "name");
+  if (!name) redirect(`/admin/directors?error=${encodeMessage("디렉터 이름을 입력해야 합니다.")}`);
 
-  if (!name || !slug) {
-    throw new Error("디렉터 이름은 필수입니다.");
+  const slug = getString(formData, "slug") || slugify(name);
+
+  let successMessage = "디렉터 저장 완료";
+
+  try {
+    const urls = await uploadDirectorImages(formData, slug);
+    const { data, error } = await supabaseAdmin.from("directors").insert(directorPayloadFromForm(formData, urls)).select("id, name").single();
+    if (error) throw new Error(error.message);
+
+    revalidatePath("/");
+    revalidatePath("/admin");
+    revalidatePath("/admin/directors");
+    revalidatePath("/directors");
+    successMessage = `${data.name} 저장 완료`;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "디렉터 저장에 실패했습니다.";
+    redirect(`/admin/directors?error=${encodeMessage(message)}`);
   }
 
-  const profileImage = formData.get("profile_image") as File | null;
-  const coverImage = formData.get("cover_image") as File | null;
+  redirect(`/admin/directors?success=${encodeMessage(successMessage)}`);
+}
 
-  const profileImageUrl = await uploadAdminImage({
-    bucket: "director-images",
-    folder: slug,
-    file: profileImage,
-  });
+export async function updateDirectorAction(formData: FormData) {
+  const id = getString(formData, "id");
+  const name = getString(formData, "name");
+  if (!id) redirect(`/admin/directors?error=${encodeMessage("수정할 디렉터 ID가 없습니다.")}`);
+  if (!name) redirect(`/admin/directors?error=${encodeMessage("디렉터 이름을 입력해야 합니다.")}`);
 
-  const coverImageUrl = await uploadAdminImage({
-    bucket: "director-images",
-    folder: slug,
-    file: coverImage,
-  });
+  const slug = getString(formData, "slug") || slugify(name);
 
-  const { error } = await supabaseAdmin.from("directors").insert({
-    slug,
-    name,
-    japanese_name: String(formData.get("japanese_name") || "").trim() || null,
-    role: String(formData.get("role") || "Director").trim(),
-    position: String(formData.get("position") || "").trim() || null,
-    profile_image_url: profileImageUrl,
-    cover_image_url: coverImageUrl,
-    description: String(formData.get("description") || "").trim() || null,
-    signature: String(formData.get("signature") || "").trim() || null,
-    display_order:
-      Number(String(formData.get("display_order") || "").trim()) || 999,
-    is_published: true,
-  });
+  let successMessage = "디렉터 수정 완료";
 
-  if (error) {
-    throw new Error(error.message);
+  try {
+    const urls = await uploadDirectorImages(formData, slug);
+    const { data, error } = await supabaseAdmin.from("directors").update(directorPayloadFromForm(formData, urls)).eq("id", id).select("id, name").single();
+    if (error) throw new Error(error.message);
+
+    revalidatePath("/");
+    revalidatePath("/admin");
+    revalidatePath("/admin/directors");
+    revalidatePath("/directors");
+    revalidatePath(`/directors/${slug}`);
+    revalidatePath(`/directors/${id}`);
+    successMessage = `${data.name} 수정 완료`;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "디렉터 수정에 실패했습니다.";
+    redirect(`/admin/directors?error=${encodeMessage(message)}`);
   }
 
-  revalidatePath("/admin/directors");
-  revalidatePath("/directors");
-  revalidatePath("/");
+  redirect(`/admin/directors?success=${encodeMessage(successMessage)}`);
 }
 
 export async function deleteDirectorAction(formData: FormData) {
-  const id = String(formData.get("id") || "").trim();
-
-  if (!id) {
-    throw new Error("삭제할 디렉터 ID가 없습니다.");
-  }
+  const id = getString(formData, "id");
+  if (!id) redirect(`/admin/directors?error=${encodeMessage("삭제할 디렉터 ID가 없습니다.")}`);
 
   const { error } = await supabaseAdmin.from("directors").delete().eq("id", id);
+  if (error) redirect(`/admin/directors?error=${encodeMessage(error.message)}`);
 
-  if (error) {
-    throw new Error(error.message);
-  }
-
+  revalidatePath("/");
+  revalidatePath("/admin");
   revalidatePath("/admin/directors");
   revalidatePath("/directors");
-  revalidatePath("/");
+  redirect(`/admin/directors?success=${encodeMessage("디렉터 삭제 완료")}`);
 }

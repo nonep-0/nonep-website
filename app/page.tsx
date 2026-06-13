@@ -275,7 +275,7 @@ function AlbumCard({ album }: { album: Album }) {
         <img
           src={image}
           alt={album.title}
-          className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105"
         />
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/82 via-black/20 to-transparent" />

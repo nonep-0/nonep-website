@@ -27,7 +27,7 @@ export async function loginAdminAction(formData: FormData) {
   if (!adminPassword) {
     redirect(
       `/admin/login?error=${encodeMessage(
-        "ADMIN_PASSWORD is missing in .env.local."
+        "ADMIN_PASSWORD is missing in environment variables."
       )}`
     );
   }

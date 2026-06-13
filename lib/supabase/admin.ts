@@ -18,6 +18,9 @@ export const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey, {
   },
 });
 
+const MAX_IMAGE_SIZE = 10 * 1024 * 1024;
+const VALID_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+
 export function slugify(value: string) {
   return value
     .trim()
@@ -46,6 +49,53 @@ export function parseNumber(value: string) {
   return Number(onlyNumber);
 }
 
+function safeFolder(folder: string) {
+  return folder
+    .split("/")
+    .map((part) =>
+      part
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+    )
+    .filter(Boolean)
+    .join("/");
+}
+
+function getImageExtension(file: File) {
+  if (file.type === "image/jpeg") return "jpg";
+  if (file.type === "image/png") return "png";
+  if (file.type === "image/webp") return "webp";
+  if (file.type === "image/gif") return "gif";
+
+  const ext = file.name.split(".").pop()?.toLowerCase();
+  if (ext && /^[a-z0-9]+$/.test(ext)) return ext;
+
+  return "jpg";
+}
+
+async function ensurePublicBucket(bucket: string) {
+  const { data } = await supabaseAdmin.storage.getBucket(bucket);
+
+  if (data) {
+    if (!data.public) {
+      await supabaseAdmin.storage.updateBucket(bucket, { public: true });
+    }
+    return;
+  }
+
+  const { error } = await supabaseAdmin.storage.createBucket(bucket, {
+    public: true,
+    fileSizeLimit: MAX_IMAGE_SIZE,
+    allowedMimeTypes: VALID_IMAGE_TYPES,
+  });
+
+  if (error && !/already exists/i.test(error.message)) {
+    throw new Error(`Storage 버킷 생성 실패: ${error.message}`);
+  }
+}
+
 export async function uploadAdminImage({
   bucket,
   folder,
@@ -59,18 +109,25 @@ export async function uploadAdminImage({
     return null;
   }
 
-  const safeName = file.name
-    .replace(/\s+/g, "-")
-    .replace(/[^\w.\-가-힣ぁ-んァ-ン一-龥]/g, "");
+  if (file.size > MAX_IMAGE_SIZE) {
+    throw new Error("이미지 파일은 10MB 이하만 업로드할 수 있습니다.");
+  }
 
-  const filePath = `${folder}/${Date.now()}-${safeName}`;
+  if (!VALID_IMAGE_TYPES.includes(file.type)) {
+    throw new Error("이미지는 JPG, PNG, WEBP, GIF 형식만 업로드할 수 있습니다.");
+  }
 
-  const { error } = await supabaseAdmin.storage
-    .from(bucket)
-    .upload(filePath, file, {
-      cacheControl: "3600",
-      upsert: false,
-    });
+  await ensurePublicBucket(bucket);
+
+  const ext = getImageExtension(file);
+  const cleanFolder = safeFolder(folder);
+  const filePath = `${cleanFolder}/${Date.now()}-${crypto.randomUUID()}.${ext}`;
+
+  const { error } = await supabaseAdmin.storage.from(bucket).upload(filePath, file, {
+    cacheControl: "3600",
+    upsert: false,
+    contentType: file.type,
+  });
 
   if (error) {
     throw new Error(error.message);

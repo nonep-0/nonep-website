@@ -1,3 +1,5 @@
+import AdminImageFileInput from "./AdminImageFileInput";
+
 export default function AdminCard({
   title,
   description,
@@ -97,11 +99,13 @@ export function AdminSelect({
   name,
   options,
   required = false,
+  defaultValue = "",
 }: {
   label: string;
   name?: string;
   options: Array<string | { label: string; value: string }>;
   required?: boolean;
+  defaultValue?: string;
 }) {
   return (
     <label className="block">
@@ -112,7 +116,7 @@ export function AdminSelect({
       <select
         name={name}
         required={required}
-        defaultValue=""
+        defaultValue={defaultValue}
         className="h-[48px] w-full rounded-[14px] border border-white/10 bg-black px-4 text-[14px] font-semibold text-white outline-none transition focus:border-[#ff1493]/70"
       >
         <option value="" disabled>
@@ -137,23 +141,24 @@ export function AdminSelect({
 export function AdminFileInput({
   label,
   name,
+  targetWidth = 1200,
+  targetHeight = 1200,
+  mode = "cover",
 }: {
   label: string;
   name?: string;
+  targetWidth?: number;
+  targetHeight?: number;
+  mode?: "cover" | "contain";
 }) {
   return (
-    <label className="block">
-      <span className="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-white/52">
-        {label}
-      </span>
-
-      <input
-        name={name}
-        type="file"
-        accept="image/*"
-        className="block h-[48px] w-full cursor-pointer rounded-[14px] border border-white/10 bg-black text-[13px] font-semibold text-white/60 file:mr-4 file:h-full file:border-0 file:bg-[#151018] file:px-5 file:text-[12px] file:font-black file:text-[#ff1493]"
-      />
-    </label>
+    <AdminImageFileInput
+      label={label}
+      name={name}
+      targetWidth={targetWidth}
+      targetHeight={targetHeight}
+      mode={mode}
+    />
   );
 }
 

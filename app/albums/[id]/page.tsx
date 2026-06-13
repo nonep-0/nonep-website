@@ -29,6 +29,14 @@ type Album = {
   youtube_views: number | null;
   youtube_url: string | null;
   youtube_video_id: string | null;
+  melon_url: string | null;
+  genie_url: string | null;
+  bugs_url: string | null;
+  vibe_url: string | null;
+  flo_url: string | null;
+  apple_music_url: string | null;
+  spotify_url: string | null;
+  youtube_music_url: string | null;
   description: string | null;
   tracklist: unknown;
   credit: unknown;
@@ -55,13 +63,18 @@ type Director = {
 
 function isUuid(value: string) {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
-    value
+    value,
   );
 }
 
 function formatNumber(value?: number | null) {
   if (!value) return "-";
   return value.toLocaleString("en-US");
+}
+
+function getYouTubeWatchUrl(videoId: string | null) {
+  if (!videoId) return null;
+  return `https://www.youtube.com/watch?v=${videoId}`;
 }
 
 function splitLines(value: unknown) {
@@ -84,7 +97,8 @@ function splitLines(value: unknown) {
           const record = item as Record<string, unknown>;
 
           const number =
-            typeof record.number === "string" || typeof record.number === "number"
+            typeof record.number === "string" ||
+            typeof record.number === "number"
               ? String(record.number).trim()
               : "";
 
@@ -140,9 +154,7 @@ function splitLines(value: unknown) {
     const record = value as Record<string, unknown>;
 
     if (Array.isArray(record.lines)) {
-      return record.lines
-        .map((line) => String(line).trim())
-        .filter(Boolean);
+      return record.lines.map((line) => String(line).trim()).filter(Boolean);
     }
 
     return Object.entries(record)
@@ -153,7 +165,40 @@ function splitLines(value: unknown) {
   return [String(value)];
 }
 
-export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) {
+type DistributionLink = {
+  label: string;
+  href: string | null;
+  logoSrc: string;
+};
+
+function PlatformIconButton({ item }: { item: DistributionLink }) {
+  if (!item.href) return null;
+
+  return (
+    <a
+      href={item.href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${item.label}에서 듣기`}
+      title={item.label}
+      className="group relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.16)_inset] transition duration-200 hover:-translate-y-0.5 hover:border-[#ff1493] hover:bg-[#ff1493] hover:shadow-[0_0_22px_rgba(255,20,147,0.5)]"
+    >
+      <img
+        src={item.logoSrc}
+        alt=""
+        aria-hidden="true"
+        className="h-[22px] w-[22px] object-contain transition duration-200 group-hover:brightness-0 group-hover:invert"
+      />
+      <span className="pointer-events-none absolute -bottom-8 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full border border-[#ff1493]/50 bg-[#ff1493] px-3 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-white opacity-0 shadow-[0_8px_22px_rgba(255,20,147,0.34)] transition duration-200 group-hover:opacity-100">
+        {item.label}
+      </span>
+    </a>
+  );
+}
+
+export default async function AlbumDetailPage({
+  params,
+}: AlbumDetailPageProps) {
   noStore();
 
   const { id } = await params;
@@ -224,6 +269,9 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
     currentAlbum.youtube_video_id ||
     extractYouTubeVideoId(currentAlbum.youtube_url);
 
+  const youtubeWatchUrl =
+    currentAlbum.youtube_url || getYouTubeWatchUrl(youtubeVideoId);
+
   const liveYoutubeViews = await getYouTubeViewCount(youtubeVideoId);
 
   const displayYoutubeViews =
@@ -256,12 +304,55 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
     "/source/albums-hero.png";
 
   const coverImage =
-    currentAlbum.thumbnail_url ||
     currentAlbum.cover_image_url ||
+    currentAlbum.thumbnail_url ||
     "/source/albums-hero.png";
 
   const tracks = splitLines(currentAlbum.tracklist);
   const credits = splitLines(currentAlbum.credit);
+
+  const distributionLinks: DistributionLink[] = [
+    {
+      label: "Melon",
+      href: currentAlbum.melon_url,
+      logoSrc: "/directors/melon.png",
+    },
+    {
+      label: "Genie",
+      href: currentAlbum.genie_url,
+      logoSrc: "/directors/genie.png",
+    },
+    {
+      label: "Bugs",
+      href: currentAlbum.bugs_url,
+      logoSrc: "/directors/bugs.png",
+    },
+    {
+      label: "VIBE",
+      href: currentAlbum.vibe_url,
+      logoSrc: "/directors/vibe.png",
+    },
+    {
+      label: "FLO",
+      href: currentAlbum.flo_url,
+      logoSrc: "/directors/flo.png",
+    },
+    {
+      label: "Apple Music",
+      href: currentAlbum.apple_music_url,
+      logoSrc: "/directors/apple-music.png",
+    },
+    {
+      label: "Spotify",
+      href: currentAlbum.spotify_url,
+      logoSrc: "/directors/spotify.png",
+    },
+    {
+      label: "YouTube Music",
+      href: currentAlbum.youtube_music_url,
+      logoSrc: "/directors/youtube-music.png",
+    },
+  ].filter((item) => item.href);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -311,7 +402,7 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
               <img
                 src={coverImage}
                 alt={currentAlbum.title}
-                className="absolute inset-0 h-full w-full object-contain"
+                className="absolute inset-0 h-full w-full scale-[1.03] object-cover object-center"
               />
             </div>
 
@@ -357,6 +448,26 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
               {currentAlbum.description ||
                 `${currentAlbum.title} is a NONEP release.`}
             </p>
+
+            {youtubeWatchUrl ? (
+              <a
+                href={youtubeWatchUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group mt-7 inline-flex items-center gap-3 rounded-full bg-[#ff1493] px-6 py-4 text-[12px] font-black uppercase tracking-[0.16em] text-white shadow-[0_0_28px_rgba(255,20,147,0.38)] transition duration-200 hover:-translate-y-0.5 hover:bg-white hover:text-black hover:shadow-[0_0_34px_rgba(255,255,255,0.28)]"
+              >
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white text-black transition duration-200 group-hover:bg-black group-hover:text-white">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-4 w-4 fill-current"
+                  >
+                    <path d="M20.8 7.15a3 3 0 0 0-2.1-2.13C16.85 4.5 12 4.5 12 4.5s-4.85 0-6.7.52a3 3 0 0 0-2.1 2.13A31.6 31.6 0 0 0 2.7 12c0 1.63.17 3.28.5 4.85a3 3 0 0 0 2.1 2.13c1.85.52 6.7.52 6.7.52s4.85 0 6.7-.52a3 3 0 0 0 2.1-2.13c.33-1.57.5-3.22.5-4.85 0-1.63-.17-3.28-.5-4.85ZM10.1 15.45v-6.9L15.95 12l-5.85 3.45Z" />
+                  </svg>
+                </span>
+                <span>Watch MV</span>
+              </a>
+            ) : null}
 
             <div className="mt-9 grid max-w-[620px] gap-y-5">
               <div className="grid grid-cols-[140px_1fr] gap-4">
@@ -407,15 +518,30 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
                 </p>
               </div>
 
+              {distributionLinks.length > 0 ? (
+                <div className="grid grid-cols-[140px_1fr] gap-4">
+                  <p className="text-[15px] font-black text-[#ff1493]">
+                    Listen
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3">
+                    {distributionLinks.map((item) => (
+                      <PlatformIconButton key={item.label} item={item} />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               <div className="grid grid-cols-[140px_1fr] gap-4">
                 <p className="text-[15px] font-black text-[#ff1493]">
                   YouTube Views
                 </p>
-                <p className="text-[15px] font-bold text-white">
-                  {displayYoutubeViews
-                    ? `${formatNumber(displayYoutubeViews)} views`
-                    : "-"}
-                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-[15px] font-bold text-white">
+                    {displayYoutubeViews
+                      ? `${formatNumber(displayYoutubeViews)} views`
+                      : "-"}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -494,17 +620,6 @@ export default async function AlbumDetailPage({ params }: AlbumDetailPageProps) 
             >
               View Director
             </Link>
-          ) : null}
-
-          {youtubeVideoId ? (
-            <a
-              href={`https://www.youtube.com/watch?v=${youtubeVideoId}`}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/20 px-6 py-3 text-[12px] font-extrabold uppercase tracking-[0.18em] text-white/70 transition hover:border-[#ff1493]/70 hover:text-white"
-            >
-              Watch on YouTube
-            </a>
           ) : null}
         </div>
       </section>
